@@ -1,0 +1,8 @@
+FROM node:lts-alpine
+WORKDIR /app
+COPY ./packages/micro-two/package*.json /app
+RUN npm install
+COPY ./packages/micro-two/* /app
+ENV PORT=8000
+EXPOSE ${PORT}
+CMD node ./index.js

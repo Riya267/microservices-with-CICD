@@ -1,0 +1,8 @@
+FROM node:lts-alpine
+WORKDIR /app
+COPY ./packages/micro-one/package*.json /app
+RUN npm install
+COPY ./packages/micro-one/* /app
+ENV PORT=8080
+EXPOSE ${PORT}
+CMD node ./index.js
